@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Email Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Email Classifier</h1>
+        <div class="metrics">
+            <h2>Performance Metrics</h2>
+            <ul>
+                <li>Accuracy: {{ metrics['accuracy'] }}</li>
+                <li>Precision: {{ metrics['precision'] }}</li>
+                <li>Recall: {{ metrics['recall'] }}</li>
+                <li>F1 Score: {{ metrics['f1_score'] }}</li>
+            </ul>
+        </div>
+        <form action="/predict" method="post">
+            <textarea name="email_text" placeholder="Enter email text here"></textarea>
+            <button type="submit">Classify</button>
+        </form>
+    </div>
+</body>
+</html>
